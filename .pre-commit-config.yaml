@@ -1,0 +1,24 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: https://github.com/psf/black
+    rev: 19.3b0
+    hooks:
+    -   id: black
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.5.2
+    hooks:
+    -   id: isort
+- repo: local
+  hooks:
+  - id: custom_pylint
+    name: custom pylint
+    entry: ./custom_pylint.py
+    language: script
+    types: [python]
+    args: [--max-line-length=120]
+    additional_dependencies: ['pylint:pylint-2.6.0']
